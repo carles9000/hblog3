@@ -1,0 +1,26 @@
+<html>
+
+	{{ Css( 'style.css' ) }}
+	{{ View( 'head.view' ) }}
+
+	<?prg
+		LOCAL hData 	:= PValue(1)
+		LOCAL cHtml 	:= ''
+	
+		cHtml += '<h3>' + hData[ 'titulo' ] + '</h3>'
+		cHtml += '<h5>' + hData[ 'texto' ] + '</h5>'
+		//cHtml += '<hr>'
+		
+		cHtml += '<form action="{{ Route( 'root' ) }}" method="POST">'
+		cHtml += '	<input type="hidden"  name="recno" value="' + ltrim(str( hData[ '_recno'] )) + '">'		
+		cHtml += '	<button type="submit" name="action" value="go" >Return  ' + ltrim(str( hData[ '_recno'] )) + '</button>'
+		cHtml += '</form>'		
+		cHtml += '<hr>'
+
+	  
+	    retu cHtml
+	?>
+
+	{{ View( 'footer.view' ) }}
+
+</html>
